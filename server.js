@@ -1,5 +1,6 @@
 var express = require('express');
 var bodyParser      = require('body-parser');
+var dynamodb = require('./dynamodb');
 
 var app = express();
 var http = require('http').Server(app);
@@ -13,6 +14,7 @@ var router = express.Router();
 
 router.post('/tweet', function(req, res) {
 	console.log('req body = ' + req.body);
+	dynamodb.getTweet(req.body);
 	res.status(200).end();
 });
 
