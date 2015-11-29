@@ -64,7 +64,9 @@ var getSetiment = function (text, Item) {
   			putTweet(Item);
   		} else {
   			console.log('Not able to compute sentiment');
-  			deleteTweet(Item.tweetId);
+  			Item.sentiment = response.body.statusInfo;
+  			putTweet(Item);
+  			//deleteTweet(Item.tweetId);
   		}
 	});
 };
